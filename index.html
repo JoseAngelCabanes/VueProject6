@@ -24,7 +24,10 @@
         No goals have been added yet - please start adding some!
       </p>
       <ul v-else>
-        <li v-for="(goal, index) in goals" @click="removeGoal(index)">{{ goal }} - {{ index }}</li>
+        <li v-for="(goal, index) in goals" ::key="goal" @click="removeGoal(index)">
+          <p>{{ goal }} - {{ index }}</p>
+          <input type="text" @click.stop />
+        </li>
       </ul>
       <!-- <ul>
         <li v-for="(value, key, index) in {name: 'Max', age: 31}">{{ key }}: {{ value }} - {{ index }}</li>
@@ -32,7 +35,6 @@
     </section>
   </body>
 </html>
-
 
 <!-- The v-show directive in Vue.js is used to show or hide elements based on a boolean expression.
 Unlike v-if, which adds or removes elements from the DOM based on the evaluated expression,
